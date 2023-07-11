@@ -19,21 +19,21 @@ class BeamElement{
     */
     stiffnessMatrix[0][0] = pow(cos(angle),2)*stiffnessMatrix[0][0];
     stiffnessMatrix[0][1] = cos(angle)*sin(angle)*stiffnessMatrix[0][1];
-    stiffnessMatrix[0][2] = -pow(cos(angle),2)*stiffnessMatrix[0][2];
-    stiffnessMatrix[0][3] = -cos(angle)*sin(angle)*stiffnessMatrix[0][3];
+    stiffnessMatrix[0][2] = -1*pow(cos(angle),2)*stiffnessMatrix[0][2];
+    stiffnessMatrix[0][3] = -1*cos(angle)*sin(angle)*stiffnessMatrix[0][3];
 
     stiffnessMatrix[1][0] = cos(angle)*sin(angle)*stiffnessMatrix[1][0];
     stiffnessMatrix[1][1] = pow(sin(angle),2)*stiffnessMatrix[1][1];
-    stiffnessMatrix[1][2] = -cos(angle)*sin(angle)*stiffnessMatrix[1][2];
+    stiffnessMatrix[1][2] = -1*cos(angle)*sin(angle)*stiffnessMatrix[1][2];
     stiffnessMatrix[1][3] = -pow(sin(angle),2)*stiffnessMatrix[1][3];
 
-    stiffnessMatrix[2][0] = -pow(cos(angle),2)*stiffnessMatrix[2][0];
-    stiffnessMatrix[2][1] = -cos(angle)*sin(angle)*stiffnessMatrix[2][1];
+    stiffnessMatrix[2][0] = -1*pow(cos(angle),2)*stiffnessMatrix[2][0];
+    stiffnessMatrix[2][1] = -1*cos(angle)*sin(angle)*stiffnessMatrix[2][1];
     stiffnessMatrix[2][2] = pow(cos(angle),2)*stiffnessMatrix[2][2];
     stiffnessMatrix[2][3] = cos(angle)*sin(angle)*stiffnessMatrix[2][3];
 
-    stiffnessMatrix[3][0] = -cos(angle)*sin(angle)*stiffnessMatrix[3][0];
-    stiffnessMatrix[3][1] = -pow(sin(angle),2)*stiffnessMatrix[3][1];
+    stiffnessMatrix[3][0] = -1*cos(angle)*sin(angle)*stiffnessMatrix[3][0];
+    stiffnessMatrix[3][1] = -1*pow(sin(angle),2)*stiffnessMatrix[3][1];
     stiffnessMatrix[3][2] = cos(angle)*sin(angle)*stiffnessMatrix[3][2];
     stiffnessMatrix[3][3] = pow(sin(angle),2)*stiffnessMatrix[3][3];
     }
