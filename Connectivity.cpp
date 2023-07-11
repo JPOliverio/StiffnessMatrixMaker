@@ -1,25 +1,25 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
+#include <list>
+#include <iterator>
 using namespace std;
-
-/*This class refers to the relationship between elements and nodes in a system. It specifies which nodes are connected to each element */
 
 
 class Connectivity{
-vector<vector<int>> determineConnectivity(int numElements, int numNodesPerElement)
-{
-    vector<vector<int>> connectivity(numElements, vector<int>(numNodesPerElement));
+    private:
+    list<int> con;
 
-    // Assign node indices to each element
-    for (int i = 0; i < numElements; ++i) {
-        for (int j = 0; j < numNodesPerElement; ++j) {
-            connectivity[i][j] = i * numNodesPerElement + j;
-        }
+    public:
+    Connectivity(){
+        list<int>::iterator it;
     }
 
-    return connectivity;
-}
+    void addConnectivity(int node, int xfixed, int yfixed){
+        
 
-};
+    }
+
+
+
+
+
+}
+;

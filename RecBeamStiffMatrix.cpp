@@ -1,18 +1,34 @@
 #include <cmath>
+#include <vector>
+#include <iostream>
+#include "BeamElement.cpp"
 using namespace std;
 
+/*This class creates the stiffness matrix of a single element
+This is for a beam with a rectangular or square cross section.
+12      6L      -12     6L
+6L      4L^2    -6L     2L^2
+-12     -6L     12      -6L
+6L      2L^2    -6L     4L^2
+*/
 
-class StiffMatrix
+
+class RecBeamStiffMatrix: public BeamElement
 {
     private:
         double length;
         double height;
         double width;
         double modulusOfElasticity;
+        //vector<vector<double>> stiffnessMatrix; Instead uses inheritance from the BeamTransformation class.
     
 
     public:
-        StiffMatrix(double l, double h, double w, double y, double** stiffnessMatrix){
+
+        RecBeamStiffMatrix(double l, double h, double w, double y){
+
+       stiffnessMatrix = vector<vector<double>>(4, vector<double>(4, 0.0));
+
         length = l;
         height = h;
         width = w;
@@ -38,6 +54,20 @@ class StiffMatrix
         stiffnessMatrix[3][1] = 2.0 * pow(length, 2) * factor;
         stiffnessMatrix[3][2] = -6.0 * length * factor;
         stiffnessMatrix[3][3] = 4.0 * pow(length, 2) * factor;
+    }
+
+    vector<vector<double>> getStiffMatrix(){
+        return stiffnessMatrix;
+
+    }
+
+    void printStiffnessMatrix(){
+    cout << "Stiffness Matrix:" << endl;
+    for (int i = 0; i < 4; ++i)
+    {
+        for (int j = 0; j < 4; ++j)
+            cout << stiffnessMatrix[i][j] << " "<<endl;
+    }
     }
 }
     
