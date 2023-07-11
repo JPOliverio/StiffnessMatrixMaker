@@ -29,16 +29,15 @@ int main(){
     double e2Degree = 30.0;
     double e3Degree = 45.0;
 
-    e1.printStiffnessMatrix();
-    e2.printStiffnessMatrix();
-    e3.printStiffnessMatrix();
-
     e1.transformSM(e1Degree);
     e2.transformSM(e2Degree);
     e3.transformSM(e3Degree);
 
+    cout<<"e1"<<endl;
     e1.printStiffnessMatrix();
+    cout<<"e2"<<endl;
     e2.printStiffnessMatrix();
+    cout<<"e3"<<endl;
     e3.printStiffnessMatrix();
 
 
