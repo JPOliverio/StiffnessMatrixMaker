@@ -1,22 +1,14 @@
 #include <list>
 #include <iterator>
+#include "BeamElement.cpp"
 using namespace std;
 
 
-class Connectivity{
+class Connectivity: public BeamElement{
     private:
-    list<int> con;
+
 
     public:
-    Connectivity(){
-        list<int>::iterator it;
-    }
-
-    void addConnectivity(int node, int xfixed, int yfixed){
-        
-
-    }
-
 
 
 

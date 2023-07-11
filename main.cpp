@@ -21,9 +21,6 @@ int main(){
        //(4, vector<double>(4, 0.0));
        sm.printStiffnessMatrix();
 
-
-
-
     RecBeamStiffMatrix e1 = RecBeamStiffMatrix(10, .2, .1, y);
     RecBeamStiffMatrix e2 = RecBeamStiffMatrix(5, .2, .1, y);
     RecBeamStiffMatrix e3 = RecBeamStiffMatrix(8, .2, .1, y);
@@ -32,18 +29,20 @@ int main(){
     double e2Degree = 30.0;
     double e3Degree = 45.0;
 
+    e1.printStiffnessMatrix();
+    e2.printStiffnessMatrix();
+    e3.printStiffnessMatrix();
+
+    e1.transformSM(e1Degree);
+    e2.transformSM(e2Degree);
+    e3.transformSM(e3Degree);
+
+    e1.printStiffnessMatrix();
+    e2.printStiffnessMatrix();
+    e3.printStiffnessMatrix();
+
+
     //BeamTransformationMatrix e1TranSM = calculateBeamTransformationMatrix()
-
-
-
-
-
-
-
-
-
-
-
 
     return 0;
 }

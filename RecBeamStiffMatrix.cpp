@@ -66,7 +66,8 @@ class RecBeamStiffMatrix: public BeamElement
     for (int i = 0; i < 4; ++i)
     {
         for (int j = 0; j < 4; ++j)
-            cout << stiffnessMatrix[i][j] << " "<<endl;
+            cout << stiffnessMatrix[i][j] << " ";
+            cout<<endl;
     }
     }
 }
