@@ -1,5 +1,6 @@
 #include <iostream>
 #include "RecBeamStiffMatrix.cpp"
+#include <list>
 using namespace std;
 
 int main(){
@@ -21,6 +22,8 @@ int main(){
        //(4, vector<double>(4, 0.0));
        sm.printStiffnessMatrix();
 
+    list<BeamElement> trusElements;
+
     RecBeamStiffMatrix e1 = RecBeamStiffMatrix(10, .2, .1, y);
     RecBeamStiffMatrix e2 = RecBeamStiffMatrix(5, .2, .1, y);
     RecBeamStiffMatrix e3 = RecBeamStiffMatrix(8, .2, .1, y);
@@ -39,6 +42,15 @@ int main(){
     e2.printStiffnessMatrix();
     cout<<"e3"<<endl;
     e3.printStiffnessMatrix();
+
+    trusElements.push_back(e1);
+    trusElements.push_back(e2);
+    trusElements.push_back(e3);
+
+
+
+
+
 
 
     //BeamTransformationMatrix e1TranSM = calculateBeamTransformationMatrix()

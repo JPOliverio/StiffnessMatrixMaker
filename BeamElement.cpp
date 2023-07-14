@@ -5,7 +5,7 @@ using namespace std;
 class BeamElement{
     protected:
     vector<vector<double>> stiffnessMatrix;
-    vector<int> connectivity;
+  
     public:
 
     void transformSM(double angle){
@@ -38,14 +38,6 @@ class BeamElement{
     stiffnessMatrix[3][3] = pow(sin(angle),2)*stiffnessMatrix[3][3];
     }
     
-    void setConnectivity(int node1, int node2){
-        connectivity = {node1,node2};
-    }
-
-    vector<int> getConnectivity(){
-        return connectivity;
-    }
-
 
     vector<vector<double>> getStiffMatrix(){
         return stiffnessMatrix;
