@@ -16,7 +16,7 @@ class BeamElement{
     cos*sin        sin^2       -cos*sin   -sin^2
     -cos^2         -cos*sin    cos^2      cos*sin
     -cos*sin       -sin^2      cos*sin    sin^2
-    */
+    */ 
     stiffnessMatrix[0][0] = pow(cos(angle),2)*stiffnessMatrix[0][0];
     stiffnessMatrix[0][1] = cos(angle)*sin(angle)*stiffnessMatrix[0][1];
     stiffnessMatrix[0][2] = -1*(pow(cos(angle),2))*stiffnessMatrix[0][2];
