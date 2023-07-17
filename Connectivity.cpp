@@ -1,24 +1,21 @@
 #include <list>
 #include <iterator>
 #include "BeamElement.cpp"
+#include "TrusGlobalStiffMatrix.cpp"
 using namespace std;
 
 
-class Connectivity: public BeamElement{
-    private:
-    list<int> firstNode;
-    list<int> secoundNode;
-    vector<double> displacement;
-    vector<double> load;
-
+class Connectivity: public TrusGlobalStiffMatrix{
 
     public:
     Connectivity(int node1, int node2){
+        elementList.push_back(elementCount);
         firstNode.push_back(node1);
         secoundNode.push_back(node2);
+        elementCount++;
     }
 
-    void displacmentVector(int numberOfNodes){
+    void displacmentVector(int numberOfNodes){ 
         //the times two is because each node has two degree of freedoms
         displacement = vector<double>(numberOfNodes*2,0); 
 
@@ -43,11 +40,4 @@ class Connectivity: public BeamElement{
 
 
 
-
-
-
-
-
-
-}
-;
+};
