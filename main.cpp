@@ -47,7 +47,7 @@ int main(){
     e7.transformSM(e7Degree);
     e8.transformSM(e8Degree);
 
-    cout<<"e1"<<endl;
+    cout<<"mme1"<<endl;
     e1.printStiffnessMatrix();
     cout<<"e2"<<endl;
     e2.printStiffnessMatrix();
