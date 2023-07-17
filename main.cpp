@@ -15,12 +15,6 @@ int main(){
         double h=.2;
         double w=.1;
         double y=3e4;
-        RecBeamStiffMatrix sm = RecBeamStiffMatrix(l, h, w, y);
-
-       vector<vector<double>> elementSM =sm.getStiffMatrix();
-       
-       //(4, vector<double>(4, 0.0));
-       sm.printStiffnessMatrix();
 
     list<BeamElement> trusElements;
 
