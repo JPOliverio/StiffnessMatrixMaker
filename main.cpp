@@ -14,40 +14,35 @@ int main(){
         double l=10;
         double h=.2;
         double w=.1;
-        double y=3e4;
+        double y=2e11;
 
     list<BeamElement> trusElements;
 
-    RecBeamStiffMatrix e1 = RecBeamStiffMatrix(20, .417, .417, y);
-    RecBeamStiffMatrix e2 = RecBeamStiffMatrix(16, .417, .417, y);
-    RecBeamStiffMatrix e3 = RecBeamStiffMatrix(12, .417, .417, y);
-    RecBeamStiffMatrix e4 = RecBeamStiffMatrix(16, .417, .417, y);
-    RecBeamStiffMatrix e5 = RecBeamStiffMatrix(20, .417, .417, y);
-    RecBeamStiffMatrix e6 = RecBeamStiffMatrix(20, .417, .417, y);
-    RecBeamStiffMatrix e7 = RecBeamStiffMatrix(16, .417, .417, y);
-    RecBeamStiffMatrix e8 = RecBeamStiffMatrix(12, .417, .417, y);
+    RecBeamStiffMatrix e1 = RecBeamStiffMatrix(1, .1, .1, y);
+    RecBeamStiffMatrix e2 = RecBeamStiffMatrix(1, .1, .1, y);
+    RecBeamStiffMatrix e3 = RecBeamStiffMatrix(1, .1, .1, y);
 
-    double e1Degree = 36.87;
-    double e2Degree = 0.0;
-    double e3Degree = 90.0;
-    double e4Degree = 0.0;
-    double e5Degree = 143.13;
-    double e6Degree = 36.87;
-    double e7Degree = 0.0;
-    double e8Degree = 90.0;
+
+    double e1Degree = 60.0;
+    double e2Degree = 120.0;
+    double e3Degree = 0.0;
+
+
+    cout<<"e1"<<endl;
+    e1.printStiffnessMatrix();
+    cout<<"e2"<<endl;
+    e2.printStiffnessMatrix();
+    cout<<"e3"<<endl;
+    e3.printStiffnessMatrix();
 
 
 
     e1.transformSM(e1Degree);
     e2.transformSM(e2Degree);
     e3.transformSM(e3Degree);
-    e4.transformSM(e4Degree);
-    e5.transformSM(e5Degree);
-    e6.transformSM(e6Degree);
-    e7.transformSM(e7Degree);
-    e8.transformSM(e8Degree);
 
-    cout<<"mme1"<<endl;
+
+    cout<<"e1"<<endl;
     e1.printStiffnessMatrix();
     cout<<"e2"<<endl;
     e2.printStiffnessMatrix();
