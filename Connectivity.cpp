@@ -1,18 +1,20 @@
+/*
+
 #include <list>
 #include <iterator>
-#include "BeamElement.cpp"
+//#include "BeamElement.cpp"
 #include "TrusGlobalStiffMatrix.cpp"
 using namespace std;
 
 
-class Connectivity: public TrusGlobalStiffMatrix{
+class Connectivity{
 
     public:
-    Connectivity(int node1, int node2){
-        elementList.push_back(elementCount);
+    void addConnectivity(int node1, int node2){
+        //elementList.push_back(elementCount);
         firstNode.push_back(node1);
         secoundNode.push_back(node2);
-        elementCount++;
+        //elementCount++;
     }
 
     void displacmentVector(int numberOfNodes){ 
@@ -41,3 +43,5 @@ class Connectivity: public TrusGlobalStiffMatrix{
 
 
 };
+
+*/
