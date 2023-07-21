@@ -33,6 +33,8 @@ class TrusGlobalStiffMatrix{
 
          int fNode = 0;
          int sNode = 0;
+
+         while(bElementList.size()>0){
          stiffnessMatrix = (bElementList.front()).getStiffMatrix();
          fNode = firstNode.front();
          sNode = secoundNode.front();
@@ -40,6 +42,11 @@ class TrusGlobalStiffMatrix{
          bElementList.pop_front();
          firstNode.pop_front();
          secoundNode.pop_front();
+
+         globalStiffnessMatrix[][]
+
+         }
+
 
          
 

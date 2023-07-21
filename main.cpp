@@ -14,7 +14,7 @@ int main(){
         double l=10;
         double h=.2;
         double w=.1;
-        double y=2e11;
+        double y=2e9;
 
     list<BeamElement> trusElements;
 
@@ -24,7 +24,7 @@ int main(){
 
 
     double e1Degree = 60.0;
-    double e2Degree = 120.0;
+    double e2Degree = 300.0;
     double e3Degree = 0.0;
 
 
