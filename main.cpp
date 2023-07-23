@@ -14,27 +14,24 @@ int main(){
     */
 
         double l=10;
-        double h=.2;
-        double w=.1;
-        double y=2e9;
+        double h=4/12;
+        double w=4/12;
+        double y=3e9;
 
     list<BeamElement> trusElements;
 
+    RecBeamStiffMatrix e1 = RecBeamStiffMatrix(20, h, w, y);
+    RecBeamStiffMatrix e2 = RecBeamStiffMatrix(16, h, w, y);
+    RecBeamStiffMatrix e3 = RecBeamStiffMatrix(12, h, w, y);
+    RecBeamStiffMatrix e4 = RecBeamStiffMatrix(16, h, w, y);
+    RecBeamStiffMatrix e5 = RecBeamStiffMatrix(20, h, w, y);
+    RecBeamStiffMatrix e6 = RecBeamStiffMatrix(20, h, w, y);
+    RecBeamStiffMatrix e7 = RecBeamStiffMatrix(16, h, w, y);
+    RecBeamStiffMatrix e8 = RecBeamStiffMatrix(12, h, w, y);
 
-    RecBeamStiffMatrix e1 = RecBeamStiffMatrix(1, .1, .1, y);
-    RecBeamStiffMatrix e2 = RecBeamStiffMatrix(1, .1, .1, y);
-    RecBeamStiffMatrix e3 = RecBeamStiffMatrix(1, .1, .1, y);
-    /*
-    conect.addConnectivity(0,1);
-    conect.addConnectivity(1,2);
-    conect.addConnectivity(0,2);
-    */
-
-
-    double e1Degree = 60.0;
-    double e2Degree = 300.0;
-    double e3Degree = 0.0;
-
+    double deg1 = 0.6435011088*180/3.141592678;
+    double deg2 = 180 -deg1;
+    double deg3 = 90;
 
     cout<<"e1"<<endl;
     e1.printStiffnessMatrix();
@@ -43,12 +40,14 @@ int main(){
     cout<<"e3"<<endl;
     e3.printStiffnessMatrix();
 
-
-
-    e1.transformSM(e1Degree);
-    e2.transformSM(e2Degree);
-    e3.transformSM(e3Degree);
-
+    e1.transformSM(deg1);
+    e2.transformSM(0);
+    e3.transformSM(deg3);
+    e4.transformSM(0);
+    e5.transformSM(deg2);
+    e6.transformSM(deg1);
+    e7.transformSM(0);
+    e8.transformSM(deg3);
 
     cout<<"e1"<<endl;
     e1.printStiffnessMatrix();
@@ -63,12 +62,22 @@ int main(){
     trusElements.push_back(e1);
     trusElements.push_back(e2);
     trusElements.push_back(e3);
+    trusElements.push_back(e4);
+    trusElements.push_back(e5);
+    trusElements.push_back(e6);
+    trusElements.push_back(e7);
+    trusElements.push_back(e8);
 
 
-    TrusGlobalStiffMatrix tb = TrusGlobalStiffMatrix(3);
-    tb.addElementTrusGlobalStiffMatrix(e1, 0, 1);
-    tb.addElementTrusGlobalStiffMatrix(e2, 1, 2);
-    tb.addElementTrusGlobalStiffMatrix(e3, 0 ,2);
+    TrusGlobalStiffMatrix tb = TrusGlobalStiffMatrix(8);
+    tb.addElementTrusGlobalStiffMatrix(e1, 0, 2);
+    tb.addElementTrusGlobalStiffMatrix(e2, 0, 1);
+    tb.addElementTrusGlobalStiffMatrix(e3, 1 ,2);
+    tb.addElementTrusGlobalStiffMatrix(e4, 2, 4);
+    tb.addElementTrusGlobalStiffMatrix(e5, 2, 3);
+    tb.addElementTrusGlobalStiffMatrix(e6, 1 ,4);
+    tb.addElementTrusGlobalStiffMatrix(e7, 1, 3);
+    tb.addElementTrusGlobalStiffMatrix(e8, 3 ,4);
     tb.printGBStiff();
 
 
