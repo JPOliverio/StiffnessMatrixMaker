@@ -2,6 +2,7 @@
 //#include "RecBeamStiffMatric.cpp"
 #include <vector>
 #include <list>
+#include <algorithm>
 
 
 using namespace std;
@@ -58,19 +59,44 @@ class TrusGlobalStiffMatrix{
          globalStiffnessMatrix[d2y][d1y] = stiffnessMatrix[3][1] + globalStiffnessMatrix[d2y][d1y];
          globalStiffnessMatrix[d2y][d2x] = stiffnessMatrix[3][2] + globalStiffnessMatrix[d2y][d2x];
          globalStiffnessMatrix[d2y][d2y] = stiffnessMatrix[3][3] + globalStiffnessMatrix[d2y][d2y];         
-         }
+    }
+
+    void applyBoundaryConditions(vector<double> displacmentVector, vector<double> loadVector){
+        // you need to apply the bounray condtions and reduce the matrix to detrmine the detrminte 
+        //loadVector {}
+        int columnToDelete = 0;
+        for(int j = displacmentVector.size(); j > 0; j--){
+            //to delete a column
+            for(int i = 0; i< globalStiffnessMatrix.size(); i++){
+                if(globalStiffnessMatrix[i].size() > columnToDelete){
+                    globalStiffnessMatrix[i].erase(globalStiffnessMatrix[i].begin() + columnToDelete)
+                }
+            }
+        }
+        
 
 
-        void printGBStiff(){
-         cout<< "Global Stiffness Matrix:" << endl;
-         int sizeStiff = numNodes*2;
-         for (int i = 0; i < sizeStiff; ++i)
-         {
+
+        //to delete a row
+        globalStiffnessMatrix.erase(globalStiffnessMatrix.begin() + 2);
+
+
+
+    }     
+
+    
+
+
+    void printGBStiff(){
+        cout<< "Global Stiffness Matrix:" << endl;
+        int sizeStiff = numNodes*2;
+        for (int i = 0; i < sizeStiff; ++i)
+        {
             for (int j = 0; j < sizeStiff; ++j)
                 cout << globalStiffnessMatrix[i][j] << " ";
                 cout<<endl;
-         }
         }
+    }
 
 
 };
