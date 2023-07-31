@@ -65,11 +65,14 @@ class TrusGlobalStiffMatrix{
         // you need to apply the bounray condtions and reduce the matrix to detrmine the detrminte 
         //loadVector {}
         int columnToDelete = 0;
-        for(int j = displacmentVector.size(); j > 0; j--){
+        for(int j = 0; j < displacmentVector.size(); j++){
             //to delete a column
-            for(int i = 0; i< globalStiffnessMatrix.size(); i++){
-                if(globalStiffnessMatrix[i].size() > columnToDelete){
-                    globalStiffnessMatrix[i].erase(globalStiffnessMatrix[i].begin() + columnToDelete)
+            if(displacmentVector[j]==0){
+                columnToDelete = displacmentVector[j];
+                for(int i = 0; i < globalStiffnessMatrix.size(); i++){
+                    if(globalStiffnessMatrix[i].size() > columnToDelete){
+                        globalStiffnessMatrix[i].erase(globalStiffnessMatrix[i].begin() + columnToDelete);
+                    }
                 }
             }
         }
@@ -77,8 +80,11 @@ class TrusGlobalStiffMatrix{
 
 
 
+
+        /*
         //to delete a row
         globalStiffnessMatrix.erase(globalStiffnessMatrix.begin() + 2);
+        */
 
 
 

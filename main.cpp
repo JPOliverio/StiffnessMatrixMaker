@@ -48,6 +48,7 @@ int main(){
     vector<double> loadVector = {0.0, 0.0, 0.0, -100, 0.0, 0.0};
 
     tb.applyBoundaryConditions(displacmentVector, loadVector);
+    tb.printGBStiff();
 
 
 
