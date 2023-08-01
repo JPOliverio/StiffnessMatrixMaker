@@ -64,6 +64,7 @@ class TrusGlobalStiffMatrix{
     void applyBoundaryConditions(vector<double> displacmentVector, vector<double> loadVector){
         // you need to apply the bounray condtions and reduce the matrix to detrmine the detrminte 
         //loadVector {}
+        /*
         int columnToDelete = 0;
         for(int j = 0; j < displacmentVector.size(); j++){
             //to delete a column
@@ -74,6 +75,17 @@ class TrusGlobalStiffMatrix{
                         globalStiffnessMatrix[i].erase(globalStiffnessMatrix[i].begin() + columnToDelete);
                     }
                 }
+            }
+        }
+        */
+
+       int dStart = displacmentVector.size() -1;
+        for(dStart; dStart >= 0 ; --dStart){
+            //cout<<i<<endl;
+            if(displacmentVector[dStart]==0){
+                for_each(globalStiffnessMatrix.begin(), globalStiffnessMatrix.end(), [&](vector<double>& row) {
+                row.erase(next(row.begin(), dStart));
+                });
             }
         }
         
@@ -96,9 +108,9 @@ class TrusGlobalStiffMatrix{
     void printGBStiff(){
         cout<< "Global Stiffness Matrix:" << endl;
         int sizeStiff = numNodes*2;
-        for (int i = 0; i < sizeStiff; ++i)
+        for (int i = 0; i < globalStiffnessMatrix.size(); ++i)
         {
-            for (int j = 0; j < sizeStiff; ++j)
+            for (int j = 0; j < globalStiffnessMatrix[1].size(); ++j)
                 cout << globalStiffnessMatrix[i][j] << " ";
                 cout<<endl;
         }

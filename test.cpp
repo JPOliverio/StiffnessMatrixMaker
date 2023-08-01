@@ -5,8 +5,13 @@ using namespace std;
 
 int main(){
 
-        for(int j = 5; j >=0; j--)
-            cout<<j<<endl;
+        for(int i = 5; i>0; --i){
+                cout<<i<<endl;
+        }
+
+
+  
+
 
  return 0;   
 }
