@@ -63,25 +63,10 @@ class TrusGlobalStiffMatrix{
 
     void applyBoundaryConditions(vector<double> displacmentVector, vector<double> loadVector){
         // you need to apply the bounray condtions and reduce the matrix to detrmine the detrminte 
-        //loadVector {}
-        /*
-        int columnToDelete = 0;
-        for(int j = 0; j < displacmentVector.size(); j++){
-            //to delete a column
-            if(displacmentVector[j]==0){
-                columnToDelete = displacmentVector[j];
-                for(int i = 0; i < globalStiffnessMatrix.size(); i++){
-                    if(globalStiffnessMatrix[i].size() > columnToDelete){
-                        globalStiffnessMatrix[i].erase(globalStiffnessMatrix[i].begin() + columnToDelete);
-                    }
-                }
-            }
-        }
-        */
 
-       int dStart = displacmentVector.size() -1;
+        //deletes the column. Credit goes to https://stackoverflow.com/questions/27264953/how-to-delete-column-in-2d-vector-c
+        int dStart = displacmentVector.size() -1;
         for(dStart; dStart >= 0 ; --dStart){
-            //cout<<i<<endl;
             if(displacmentVector[dStart]==0){
                 for_each(globalStiffnessMatrix.begin(), globalStiffnessMatrix.end(), [&](vector<double>& row) {
                 row.erase(next(row.begin(), dStart));
