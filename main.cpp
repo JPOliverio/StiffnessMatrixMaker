@@ -12,7 +12,7 @@ int main(){
     double l3 = 1.0;
     double h = 0.01;
     double w = 0.01;
-    double y = 2e8;
+    double y = 2e9;
 
     RecBeamStiffMatrix e1 = RecBeamStiffMatrix(l3, h, w, y);
     RecBeamStiffMatrix e2 = RecBeamStiffMatrix(l1, h, w, y);

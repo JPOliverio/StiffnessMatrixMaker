@@ -65,6 +65,7 @@ class TrusGlobalStiffMatrix{
         // you need to apply the bounray condtions and reduce the matrix to detrmine the detrminte 
 
         //deletes the column. Credit goes to https://stackoverflow.com/questions/27264953/how-to-delete-column-in-2d-vector-c
+        //deltes from right to left
         int dStart = displacmentVector.size() -1;
         for(dStart; dStart >= 0 ; --dStart){
             if(displacmentVector[dStart]==0){
@@ -73,18 +74,15 @@ class TrusGlobalStiffMatrix{
                 });
             }
         }
+
+        //deletes rows from bottom to top.
+        int lStart = loadVector.size() -1;
+        for(lStart; lStart >= 0 ; --lStart){
+            if(loadVector[lStart]==0){
+                globalStiffnessMatrix.erase(globalStiffnessMatrix.begin() + lStart);
+            }
+        }
         
-
-
-
-
-        /*
-        //to delete a row
-        globalStiffnessMatrix.erase(globalStiffnessMatrix.begin() + 2);
-        */
-
-
-
     }     
 
     
@@ -95,7 +93,7 @@ class TrusGlobalStiffMatrix{
         int sizeStiff = numNodes*2;
         for (int i = 0; i < globalStiffnessMatrix.size(); ++i)
         {
-            for (int j = 0; j < globalStiffnessMatrix[1].size(); ++j)
+            for (int j = 0; j < globalStiffnessMatrix[0].size(); ++j)
                 cout << globalStiffnessMatrix[i][j] << " ";
                 cout<<endl;
         }
