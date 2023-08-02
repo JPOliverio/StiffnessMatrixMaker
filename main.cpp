@@ -3,6 +3,7 @@
 #include <list>
 //#include "BeamElement.cpp"
 #include "TrusGlobalStiffMatrix.cpp"
+#include <variant>
 using namespace std;
 
 int main(){

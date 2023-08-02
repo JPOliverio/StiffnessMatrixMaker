@@ -1,14 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <list>
+#include <variant>
 
 using namespace std;
 
 int main(){
 
-        for(int i = 5; i>0; --i){
-                cout<<i<<endl;
-        }
 
+      vector<variant<string, double>> vec;
 
   
 

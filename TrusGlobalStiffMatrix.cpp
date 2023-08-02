@@ -1,8 +1,8 @@
 #include <iostream>
-//#include "RecBeamStiffMatric.cpp"
 #include <vector>
 #include <list>
 #include <algorithm>
+//#include "BeamElement.cpp"
 
 
 using namespace std;
