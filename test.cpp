@@ -8,7 +8,10 @@ using namespace std;
 int main(){
 
 
-      vector<variant<string, double>> vec;
+      vector<variant<string, double>> vec {'c', 0};
+
+      cout<<vec[0]<<endl;
+
 
   
 

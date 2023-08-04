@@ -2,6 +2,7 @@
 #include <vector>
 #include <list>
 #include <algorithm>
+#include "math.h"
 //#include "BeamElement.cpp"
 
 
@@ -61,27 +62,44 @@ class TrusGlobalStiffMatrix{
          globalStiffnessMatrix[d2y][d2y] = stiffnessMatrix[3][3] + globalStiffnessMatrix[d2y][d2y];         
     }
 
-    void applyBoundaryConditions(vector<double> displacmentVector, vector<double> loadVector){
+    void applyBoundaryConditions(vector<string> displacmentVector, vector<string> loadVector){
         // you need to apply the bounray condtions and reduce the matrix to detrmine the detrminte 
 
         //deletes the column. Credit goes to https://stackoverflow.com/questions/27264953/how-to-delete-column-in-2d-vector-c
         //deltes from right to left
+        bool result = false;
         int dStart = displacmentVector.size() -1;
         for(dStart; dStart >= 0 ; --dStart){
-            if(displacmentVector[dStart]==0){
+            try{
+                stod(displacmentVector[dStart])==0;
+                result = true;
+            }catch(...){
+                result = false;
+            }
+            if(result){
                 for_each(globalStiffnessMatrix.begin(), globalStiffnessMatrix.end(), [&](vector<double>& row) {
                 row.erase(next(row.begin(), dStart));
                 });
             }
         }
+        
 
+        
         //deletes rows from bottom to top.
         int lStart = loadVector.size() -1;
         for(lStart; lStart >= 0 ; --lStart){
-            if(loadVector[lStart]==0){
+            try{
+                stod(loadVector[lStart]);
+                result = false;
+            }catch(...){
+                result = true;
+            }
+            if(result){
                 globalStiffnessMatrix.erase(globalStiffnessMatrix.begin() + lStart);
             }
         }
+        
+        
         
     }     
 

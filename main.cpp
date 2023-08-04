@@ -1,18 +1,16 @@
 #include <iostream>
 #include "RecBeamStiffMatrix.cpp"
-#include <list>
-//#include "BeamElement.cpp"
 #include "TrusGlobalStiffMatrix.cpp"
-#include <variant>
+#include <vector>
 using namespace std;
 
 int main(){
 
-    double l1 = 1.0;
-    double l2 = 1.0;
-    double l3 = 1.0;
-    double h = 0.01;
-    double w = 0.01;
+    double l1 = 100.0;
+    double l2 = 100.0;
+    double l3 = 100.0;
+    double h = .01;
+    double w = .01;
     double y = 2e9;
 
     RecBeamStiffMatrix e1 = RecBeamStiffMatrix(l3, h, w, y);
@@ -45,8 +43,9 @@ int main(){
     tb.addElementTrusGlobalStiffMatrix(e3, 0 ,2);
     tb.printGBStiff();
 
-    vector<double> displacmentVector = {0.0, 0.0, 1.0, 1.0, 0.0, 0.0};
-    vector<double> loadVector = {0.0, 0.0, 0.0, -100, 0.0, 0.0};
+    //made these string vectors. there is then a try catch to see if theres a value or not to reduce the gsm.
+    vector<string> displacmentVector = {"d", "0.0", "d", "d", "0.0", "0.0"};
+    vector<string> loadVector = {"0.0", "f", "0.0", "-100.0", "f", "f"};
 
     tb.applyBoundaryConditions(displacmentVector, loadVector);
     tb.printGBStiff();
