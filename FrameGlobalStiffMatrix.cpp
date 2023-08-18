@@ -3,7 +3,7 @@
 #include <list>
 #include <algorithm>
 #include "math.h"
-#include "FrameElement.cpp"
+//#include "FrameElement.cpp"
 
 
 using namespace std;
@@ -135,7 +135,7 @@ class FrameGlobalStiffMatrix{
 
     void printGBStiff(){
         cout<< "Global Stiffness Matrix:" << endl;
-        int sizeStiff = numNodes*2;
+        int sizeStiff = numNodes*3;
         for (int i = 0; i < globalStiffnessMatrix.size(); ++i)
         {
             for (int j = 0; j < globalStiffnessMatrix[0].size(); ++j)

@@ -12,9 +12,8 @@ class FrameElement{
     vector<vector<double>> Transformedsm  = vector<vector<double>>(6, vector<double>(6, 0.0));
    
     public:
-
-    void framElement(double angle){
-        angle = 0;
+    void transformSM(double angle){
+        //angle = 0;
         //to put a local transformation matrix in global coordiants we use the formula K=(T^t)*k+t
 
         tr[0] = {cos(angle), -sin(angle), 0, 0, 0, 0};

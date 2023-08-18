@@ -1,5 +1,6 @@
 #include <iostream>
 #include "RecBeamStiffMatrix.cpp"
+#include "RecFrameStiffMatrix.cpp"
 #include "TrusGlobalStiffMatrix.cpp"
 #include <vector>
 #include "FrameGlobalStiffMatrix.cpp"
@@ -16,6 +17,52 @@ the problem with my code is it only loks at beam or truss. I need to look at fra
 
 int main(){
 
+    double l1 = 2;
+    double l2 = 2;
+    double h = 0.12;
+    double w = 0.12;
+    double y = 2e1;
+
+
+
+
+
+
+    RecFrameStiffMatrix e1 = RecFrameStiffMatrix(l1, h, w, y);
+    RecFrameStiffMatrix e2 = RecFrameStiffMatrix(l2, h, w, y);
+
+    cout<<"e1"<<endl;
+    e1.printStiffnessMatrix();
+    cout<<"e2"<<endl;
+    e2.printStiffnessMatrix();
+
+    e1.transformSM(90.0);
+    e2.transformSM(0.0);
+
+    cout<<"e1"<<endl;
+    e1.printStiffnessMatrix();
+    cout<<"e2"<<endl;
+    e2.printStiffnessMatrix();
+
+    FrameGlobalStiffMatrix tb = FrameGlobalStiffMatrix(3);
+    tb.addElementTrusGlobalStiffMatrix(e1, 0, 1);
+    tb.addElementTrusGlobalStiffMatrix(e2, 1, 2);
+    tb.printGBStiff();
+
+/*
+    vector<string> displacmentVector = {"d", "0.0", "d", "d", "0.0", "0.0"};
+    vector<string> loadVector = {"0.0", "f", "0.0", "-100.0", "f", "f"};
+
+    tb.applyBoundaryConditions(displacmentVector, loadVector);
+    tb.printGBStiff();
+
+    */
+
+
+
+
+
+    /* This was for the truss or beam method that is not working
     double l1 = 1.0;
     double l2 = 1.0;
     double l3 = 1.0;
@@ -59,6 +106,8 @@ int main(){
 
     tb.applyBoundaryConditions(displacmentVector, loadVector);
     tb.printGBStiff();
+
+    */
 
 
 

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Frameelement.cpp"
+#include "FrameElement.cpp"
 using namespace std;
 
 /*I could have just used the frame transformation matrix but i wanted to dimenstrate inheritance/ function overriding */
@@ -23,7 +23,7 @@ class RecFrameStiffMatrix: public FrameElement{
             sm[1] = {0, 12*EI/pow(l,3), 6*EI/pow(l,2), 0, -12*EI/pow(l,3), 6*EI/pow(l,2)};
             sm[2] = {0,  6*EI/pow(l,2), 4*EI/l, 0, -6*EI/pow(l,2), 2*EI/l};
             sm[3] = {-E*a/l, 0, 0, E*a/l, 0, 0};
-            sm[4] = {0, -12*EI/pow(l,3), -6*EI/pow(l,2), 0, 12*EI/pow(l,3), -.6*EI/pow(l,2)};
+            sm[4] = {0, -12*EI/pow(l,3), -6*EI/pow(l,2), 0, 12*EI/pow(l,3), -6*EI/pow(l,2)};
             sm[5] = {0,  6*EI/pow(l,2), 2*EI/l, 0, -6*EI/pow(l,2), 4*EI/l};
         }
 
@@ -33,9 +33,9 @@ class RecFrameStiffMatrix: public FrameElement{
 
         void printStiffnessMatrix(){
             cout << "Stiffness Matrix:" << endl;
-            for (int i = 0; i < 4; ++i)
+            for (int i = 0; i < 6; ++i)
             {
-                for (int j = 0; j < 4; ++j)
+                for (int j = 0; j < 6; ++j)
                     cout << sm[i][j] << " ";
                     cout<<endl;
             }
