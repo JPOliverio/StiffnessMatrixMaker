@@ -4,14 +4,23 @@
 #include <vector>
 using namespace std;
 
+/*
+Truss elment carry only axial forces.
+Beam elments carry shear forces and bending moment.
+Frame element carry shear, bending and axial forces.
+
+the problem with my code is it only loks at beam or truss. I need to look at frame.
+
+*/
+
 int main(){
 
-    double l1 = 100.0;
-    double l2 = 100.0;
-    double l3 = 100.0;
-    double h = .01;
-    double w = .01;
-    double y = 2e9;
+    double l1 = 1.0;
+    double l2 = 1.0;
+    double l3 = 1.0;
+    double h = .1;
+    double w = .1;
+    double y = 2e11;
 
     RecBeamStiffMatrix e1 = RecBeamStiffMatrix(l3, h, w, y);
     RecBeamStiffMatrix e2 = RecBeamStiffMatrix(l1, h, w, y);
@@ -26,7 +35,7 @@ int main(){
     e3.printStiffnessMatrix();
 
     e1.transformSM(60.0);
-    e2.transformSM(300);
+    e2.transformSM(300.0);
     e3.transformSM(0);
 
 

@@ -35,8 +35,6 @@ class RecBeamStiffMatrix: public BeamElement
 
         //if you multiply this by foce you get max deflection
         double EI = modulusOfElasticity * momentOfInertia / pow(length, 3);
-        //not sure what this is i saw it in examples. I think they factered out the length using this
-        double EA = modulusOfElasticity * momentOfInertia /length;
         stiffnessMatrix[0][0] = 12.0 * EI;
         stiffnessMatrix[0][1] = 6.0 * length * EI;
         stiffnessMatrix[0][2] = -12.0 * EI;
