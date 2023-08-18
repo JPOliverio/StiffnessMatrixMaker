@@ -2,6 +2,7 @@
 #include "RecBeamStiffMatrix.cpp"
 #include "TrusGlobalStiffMatrix.cpp"
 #include <vector>
+#include "FrameGlobalStiffMatrix.cpp"
 using namespace std;
 
 /*

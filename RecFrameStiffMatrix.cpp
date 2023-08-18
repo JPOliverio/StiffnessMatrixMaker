@@ -2,7 +2,7 @@
 #include "Frameelement.cpp"
 using namespace std;
 
-
+/*I could have just used the frame transformation matrix but i wanted to dimenstrate inheritance/ function overriding */
 class RecFrameStiffMatrix: public FrameElement{
     private:
         double length;
