@@ -50,16 +50,12 @@ int main(){
     tb.addElementTrusGlobalStiffMatrix(e2, 1, 2);
     tb.printGBStiff();
 
-/*
-    vector<string> displacmentVector = {"d", "0.0", "d", "d", "0.0", "0.0"};
-    vector<string> loadVector = {"0.0", "f", "0.0", "-100.0", "f", "f"};
+
+    vector<string> displacmentVector = {"0.0", "0.0", "0.0", "d", "d", "m", "d", "d", "m"};
+    vector<string> loadVector = {"f", "f", "m", "0.0", "0.0", "0.0", "0.0", "-100.0", "0.0"};
 
     tb.applyBoundaryConditions(displacmentVector, loadVector);
     tb.printGBStiff();
-
-    */
-
-
 
 
 
