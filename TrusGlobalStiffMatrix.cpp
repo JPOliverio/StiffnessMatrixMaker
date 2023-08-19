@@ -111,9 +111,12 @@ class TrusGlobalStiffMatrix{
         int sizeStiff = numNodes*2;
         for (int i = 0; i < globalStiffnessMatrix.size(); ++i)
         {
-            for (int j = 0; j < globalStiffnessMatrix[0].size(); ++j)
-                cout << globalStiffnessMatrix[i][j] << " ";
+            for (int j = 0; j < globalStiffnessMatrix[0].size(); ++j){
+                cout << globalStiffnessMatrix[i][j] << " | ";
                 cout<<endl;
+                cout<<"----------------------------------------------------------------------";
+                cout<<endl;
+            }
         }
     }
 

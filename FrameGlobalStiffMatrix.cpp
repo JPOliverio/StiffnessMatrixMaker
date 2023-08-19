@@ -51,44 +51,44 @@ class FrameGlobalStiffMatrix{
          globalStiffnessMatrix[d1x][d1x] = stiffnessMatrix[0][0] + globalStiffnessMatrix[d1x][d1x];
          globalStiffnessMatrix[d1x][d1y] = stiffnessMatrix[0][1] + globalStiffnessMatrix[d1x][d1y];
          globalStiffnessMatrix[d1x][d1m] = stiffnessMatrix[0][2] + globalStiffnessMatrix[d1x][d1m];
-         globalStiffnessMatrix[d1x][d2x] = stiffnessMatrix[0][2] + globalStiffnessMatrix[d1x][d2x];
-         globalStiffnessMatrix[d1x][d2y] = stiffnessMatrix[0][3] + globalStiffnessMatrix[d1x][d2y];
-         globalStiffnessMatrix[d1x][d2m] = stiffnessMatrix[0][3] + globalStiffnessMatrix[d1x][d2m];
+         globalStiffnessMatrix[d1x][d2x] = stiffnessMatrix[0][3] + globalStiffnessMatrix[d1x][d2x];
+         globalStiffnessMatrix[d1x][d2y] = stiffnessMatrix[0][4] + globalStiffnessMatrix[d1x][d2y];
+         globalStiffnessMatrix[d1x][d2m] = stiffnessMatrix[0][5] + globalStiffnessMatrix[d1x][d2m];
          
          globalStiffnessMatrix[d1y][d1x] = stiffnessMatrix[1][0] + globalStiffnessMatrix[d1y][d1x];
          globalStiffnessMatrix[d1y][d1y] = stiffnessMatrix[1][1] + globalStiffnessMatrix[d1y][d1y];
-         globalStiffnessMatrix[d1y][d1m] = stiffnessMatrix[1][1] + globalStiffnessMatrix[d1y][d1m];
-         globalStiffnessMatrix[d1y][d2x] = stiffnessMatrix[1][2] + globalStiffnessMatrix[d1y][d2x];
-         globalStiffnessMatrix[d1y][d2y] = stiffnessMatrix[1][3] + globalStiffnessMatrix[d1y][d2y];
-         globalStiffnessMatrix[d1y][d2m] = stiffnessMatrix[1][3] + globalStiffnessMatrix[d1y][d2m];
+         globalStiffnessMatrix[d1y][d1m] = stiffnessMatrix[1][2] + globalStiffnessMatrix[d1y][d1m];
+         globalStiffnessMatrix[d1y][d2x] = stiffnessMatrix[1][3] + globalStiffnessMatrix[d1y][d2x];
+         globalStiffnessMatrix[d1y][d2y] = stiffnessMatrix[1][4] + globalStiffnessMatrix[d1y][d2y];
+         globalStiffnessMatrix[d1y][d2m] = stiffnessMatrix[1][5] + globalStiffnessMatrix[d1y][d2m];
 
-         globalStiffnessMatrix[d1m][d1x] = stiffnessMatrix[1][0] + globalStiffnessMatrix[d1y][d1x];
-         globalStiffnessMatrix[d1m][d1y] = stiffnessMatrix[1][1] + globalStiffnessMatrix[d1y][d1y];
-         globalStiffnessMatrix[d1m][d1m] = stiffnessMatrix[1][1] + globalStiffnessMatrix[d1y][d1m];
-         globalStiffnessMatrix[d1m][d2x] = stiffnessMatrix[1][2] + globalStiffnessMatrix[d1y][d2x];
-         globalStiffnessMatrix[d1m][d2y] = stiffnessMatrix[1][3] + globalStiffnessMatrix[d1y][d2y];
-         globalStiffnessMatrix[d1m][d2m] = stiffnessMatrix[1][3] + globalStiffnessMatrix[d1y][d2m];
+         globalStiffnessMatrix[d1m][d1x] = stiffnessMatrix[2][0] + globalStiffnessMatrix[d1m][d1x];
+         globalStiffnessMatrix[d1m][d1y] = stiffnessMatrix[2][1] + globalStiffnessMatrix[d1m][d1y];
+         globalStiffnessMatrix[d1m][d1m] = stiffnessMatrix[2][2] + globalStiffnessMatrix[d1m][d1m];
+         globalStiffnessMatrix[d1m][d2x] = stiffnessMatrix[2][3] + globalStiffnessMatrix[d1m][d2x];
+         globalStiffnessMatrix[d1m][d2y] = stiffnessMatrix[2][4] + globalStiffnessMatrix[d1m][d2y];
+         globalStiffnessMatrix[d1m][d2m] = stiffnessMatrix[2][5] + globalStiffnessMatrix[d1m][d2m];
 
-         globalStiffnessMatrix[d2x][d1x] = stiffnessMatrix[2][0] + globalStiffnessMatrix[d2x][d1x];
-         globalStiffnessMatrix[d2x][d1y] = stiffnessMatrix[2][1] + globalStiffnessMatrix[d2x][d1y];
-         globalStiffnessMatrix[d2x][d1m] = stiffnessMatrix[2][1] + globalStiffnessMatrix[d2x][d1m];
-         globalStiffnessMatrix[d2x][d2x] = stiffnessMatrix[2][2] + globalStiffnessMatrix[d2x][d2x];
-         globalStiffnessMatrix[d2x][d2y] = stiffnessMatrix[2][3] + globalStiffnessMatrix[d2x][d2y];
-         globalStiffnessMatrix[d2x][d2m] = stiffnessMatrix[2][3] + globalStiffnessMatrix[d2x][d2m];
+         globalStiffnessMatrix[d2x][d1x] = stiffnessMatrix[3][0] + globalStiffnessMatrix[d2x][d1x];
+         globalStiffnessMatrix[d2x][d1y] = stiffnessMatrix[3][1] + globalStiffnessMatrix[d2x][d1y];
+         globalStiffnessMatrix[d2x][d1m] = stiffnessMatrix[3][2] + globalStiffnessMatrix[d2x][d1m];
+         globalStiffnessMatrix[d2x][d2x] = stiffnessMatrix[3][3] + globalStiffnessMatrix[d2x][d2x];
+         globalStiffnessMatrix[d2x][d2y] = stiffnessMatrix[3][4] + globalStiffnessMatrix[d2x][d2y];
+         globalStiffnessMatrix[d2x][d2m] = stiffnessMatrix[3][5] + globalStiffnessMatrix[d2x][d2m];
 
-         globalStiffnessMatrix[d2y][d1x] = stiffnessMatrix[3][0] + globalStiffnessMatrix[d2y][d1x];
-         globalStiffnessMatrix[d2y][d1y] = stiffnessMatrix[3][1] + globalStiffnessMatrix[d2y][d1y];
-         globalStiffnessMatrix[d2y][d1m] = stiffnessMatrix[3][1] + globalStiffnessMatrix[d2y][d1m];
-         globalStiffnessMatrix[d2y][d2x] = stiffnessMatrix[3][2] + globalStiffnessMatrix[d2y][d2x];
-         globalStiffnessMatrix[d2y][d2y] = stiffnessMatrix[3][3] + globalStiffnessMatrix[d2y][d2y];
-         globalStiffnessMatrix[d2y][d2m] = stiffnessMatrix[3][3] + globalStiffnessMatrix[d2y][d2m];
+         globalStiffnessMatrix[d2y][d1x] = stiffnessMatrix[4][0] + globalStiffnessMatrix[d2y][d1x];
+         globalStiffnessMatrix[d2y][d1y] = stiffnessMatrix[4][1] + globalStiffnessMatrix[d2y][d1y];
+         globalStiffnessMatrix[d2y][d1m] = stiffnessMatrix[4][2] + globalStiffnessMatrix[d2y][d1m];
+         globalStiffnessMatrix[d2y][d2x] = stiffnessMatrix[4][3] + globalStiffnessMatrix[d2y][d2x];
+         globalStiffnessMatrix[d2y][d2y] = stiffnessMatrix[4][4] + globalStiffnessMatrix[d2y][d2y];
+         globalStiffnessMatrix[d2y][d2m] = stiffnessMatrix[4][5] + globalStiffnessMatrix[d2y][d2m];
 
-         globalStiffnessMatrix[d2m][d1x] = stiffnessMatrix[3][0] + globalStiffnessMatrix[d2y][d1x];
-         globalStiffnessMatrix[d2m][d1y] = stiffnessMatrix[3][1] + globalStiffnessMatrix[d2y][d1y];
-         globalStiffnessMatrix[d2m][d1m] = stiffnessMatrix[3][1] + globalStiffnessMatrix[d2y][d1m];
-         globalStiffnessMatrix[d2m][d2x] = stiffnessMatrix[3][2] + globalStiffnessMatrix[d2y][d2x];
-         globalStiffnessMatrix[d2m][d2y] = stiffnessMatrix[3][3] + globalStiffnessMatrix[d2y][d2y];
-         globalStiffnessMatrix[d2m][d2m] = stiffnessMatrix[3][3] + globalStiffnessMatrix[d2y][d2m];
+         globalStiffnessMatrix[d2m][d1x] = stiffnessMatrix[5][0] + globalStiffnessMatrix[d2m][d1x];
+         globalStiffnessMatrix[d2m][d1y] = stiffnessMatrix[5][1] + globalStiffnessMatrix[d2m][d1y];
+         globalStiffnessMatrix[d2m][d1m] = stiffnessMatrix[5][2] + globalStiffnessMatrix[d2m][d1m];
+         globalStiffnessMatrix[d2m][d2x] = stiffnessMatrix[5][3] + globalStiffnessMatrix[d2m][d2x];
+         globalStiffnessMatrix[d2m][d2y] = stiffnessMatrix[5][4] + globalStiffnessMatrix[d2m][d2y];
+         globalStiffnessMatrix[d2m][d2m] = stiffnessMatrix[5][5] + globalStiffnessMatrix[d2m][d2m];
     }
 
     void applyBoundaryConditions(vector<string> displacmentVector, vector<string> loadVector){
@@ -138,9 +138,12 @@ class FrameGlobalStiffMatrix{
         int sizeStiff = numNodes*3;
         for (int i = 0; i < globalStiffnessMatrix.size(); ++i)
         {
-            for (int j = 0; j < globalStiffnessMatrix[0].size(); ++j)
-                cout << globalStiffnessMatrix[i][j] << " ";
-                cout<<endl;
+            for (int j = 0; j < globalStiffnessMatrix[0].size(); ++j){
+                cout << globalStiffnessMatrix[i][j] << " | ";
+            }
+            cout<<endl;
+            cout<<"------------------------------------------------------------------------------------------------------------";
+            cout<<endl;
         }
     }
 
