@@ -13,7 +13,7 @@ class FrameElement{
    
     public:
     void transformSM(double angle){
-        //angle = 0;
+        angle = angle*3.1415926/180;
         //to put a local transformation matrix in global coordiants we use the formula K=(T^t)*k+t
 
         tr[0] = {cos(angle), -sin(angle), 0, 0, 0, 0};
@@ -23,14 +23,14 @@ class FrameElement{
         tr[4] = {0, 0, 0, sin(angle), cos(angle), 0};
         tr[5] = {0, 0, 0, 0, 0, 1};
 
-        for(int j =0; j < 6; j++){
+        for(int j = 0; j < 6; j++){
             for(int i = 0; i < 6; i++){
-                Transformedsm[j][i] = tr[i][0] * sm[0][j] 
-                                            + tr[i][1] * sm[1][j]
-                                            + tr[i][2] * sm[2][j]
-                                            + tr[i][3] * sm[3][j]
-                                            + tr[i][4] * sm[4][j]
-                                            + tr[i][5] * sm[5][j];
+                Transformedsm[j][i] = tr[j][0] * sm[0][i] 
+                                    + tr[j][1] * sm[1][i]
+                                    + tr[j][2] * sm[2][i]
+                                    + tr[j][3] * sm[3][i]
+                                    + tr[j][4] * sm[4][i]
+                                    + tr[j][5] * sm[5][i];
             }
         }
 
@@ -41,14 +41,14 @@ class FrameElement{
         tr[4] = {0, 0, 0, -sin(angle), cos(angle), 0};
         tr[5] = {0, 0, 0, 0, 0, 1};
 
-        for(int j =0; j < 6; j++){
+        for(int j = 0; j < 6; j++){
             for(int i = 0; i < 6; i++){
-                Transformedsm[j][i] = Transformedsm[i][0] * tr[0][j] 
-                                                + Transformedsm[i][1] * tr[1][j]
-                                                + Transformedsm[i][2] * tr[2][j]
-                                                + Transformedsm[i][3] * tr[3][j]
-                                                + Transformedsm[i][4] * tr[4][j]
-                                                + Transformedsm[i][5] * tr[5][j];
+                Transformedsm[j][i] = Transformedsm[j][0] * tr[0][i] 
+                                    + Transformedsm[j][1] * tr[1][i]
+                                    + Transformedsm[j][2] * tr[2][i]
+                                    + Transformedsm[j][3] * tr[3][i]
+                                    + Transformedsm[j][4] * tr[4][i]
+                                    + Transformedsm[j][5] * tr[5][i];
             }
         }
 

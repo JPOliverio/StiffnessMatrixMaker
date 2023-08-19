@@ -17,9 +17,9 @@ class RecFrameStiffMatrix: public FrameElement{
 
             double momentOfInertia = (width * pow(height, 3)) / 12.0;
             double EI = E * momentOfInertia;
-            double a = l*h*w;
+            double a = h*w;
             
-            sm[0] = {E*a/l, 0, 0 -E*a/l, 0, 0};
+            sm[0] = {E*a/l, 0, 0, -E*a/l, 0, 0};
             sm[1] = {0, 12*EI/pow(l,3), 6*EI/pow(l,2), 0, -12*EI/pow(l,3), 6*EI/pow(l,2)};
             sm[2] = {0,  6*EI/pow(l,2), 4*EI/l, 0, -6*EI/pow(l,2), 2*EI/l};
             sm[3] = {-E*a/l, 0, 0, E*a/l, 0, 0};
@@ -35,9 +35,14 @@ class RecFrameStiffMatrix: public FrameElement{
             cout << "Stiffness Matrix:" << endl;
             for (int i = 0; i < 6; ++i)
             {
-                for (int j = 0; j < 6; ++j)
-                    cout << sm[i][j] << " ";
-                    cout<<endl;
+                for (int j = 0; j < 6; ++j){
+                    cout<<scientific;
+                    cout.precision(2);
+                    cout << sm[i][j] << " | ";
+                }
+                cout<<endl;
+                cout<<"----------------------------------------------------------------";
+                cout<<endl;
             }
         }    
 

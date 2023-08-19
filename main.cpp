@@ -33,7 +33,7 @@ int main(){
 
     cout<<"e1"<<endl;
     e1.printStiffnessMatrix();
-    cout<<"e2"<<endl;
+    cout<<"e2"<<endl;                                        
     e2.printStiffnessMatrix();
 
     e1.transformSM(90.0);
