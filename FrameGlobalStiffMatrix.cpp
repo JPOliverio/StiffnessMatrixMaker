@@ -3,10 +3,12 @@
 #include <list>
 #include <algorithm>
 #include "math.h"
+
 //#include "FrameElement.cpp"
 
 
 using namespace std;
+//using Eigen::MatrixXd;
 
 class FrameGlobalStiffMatrix{
 
@@ -20,6 +22,7 @@ class FrameGlobalStiffMatrix{
     vector<vector<double>> stiffnessMatrix;
     vector<vector<double>> globalStiffnessMatrix;
     int numNodes;
+    int n = 0;
 
 
 
@@ -127,6 +130,13 @@ class FrameGlobalStiffMatrix{
                 globalStiffnessMatrix.erase(globalStiffnessMatrix.begin() + lStart);
             }
         }
+
+
+
+
+        n = globalStiffnessMatrix[0].size();
+
+        // from here I could use Gaussian elimination. to make it simpler but i think i'll just solve the equation.
         
     }     
 
@@ -145,6 +155,29 @@ class FrameGlobalStiffMatrix{
             cout<<"------------------------------------------------------------------------------------------------------------";
             cout<<endl;
         }
+    }
+
+    void getDisplacment(vector<double> loadVector){
+
+        double result = 0;
+
+        for(int j = 0; j < n; j++){
+            for(int i = 0; i < n; i++){
+                for(int k = 0; k < n; k++){
+                    result = result + globalStiffnessMatrix[j][k] * loadVector[k];
+                }
+                displacement[i] = result;
+                result = 0;
+            }
+        }
+    }
+
+    void printDisplacment(){
+        cout<<"Displacment Vector"<<endl;
+        for(int i = 0; i < n; i++){
+            cout<<displacement[i]<< " | ";
+        }
+        cout<<endl;
     }
 
 
