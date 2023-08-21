@@ -22,7 +22,7 @@ int main(){
     double l2 = 2;
     double h = 0.12;
     double w = 0.12;
-    double y = 2e1;
+    double y = 2e11;
 
 
 
@@ -59,7 +59,7 @@ int main(){
 
     vector<double> loadVector2 = {0.0, 0.0, 0.0, 0.0, -100.0, 0.0};
     tb.getDisplacment(loadVector2);
-    tb.printDisplacment();
+   
 
 
 

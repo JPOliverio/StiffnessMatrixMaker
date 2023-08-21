@@ -3,12 +3,14 @@
 #include <list>
 #include <algorithm>
 #include "math.h"
+#include "MattSolver.cpp"
+#include <C:\Users\348jp\OneDrive\Documents\GitShit\StiffnessMatrixMaker\eigen\Eigen\Dense>
 
 //#include "FrameElement.cpp"
 
 
 using namespace std;
-//using Eigen::MatrixXd;
+using Eigen::MatrixXd;
 
 class FrameGlobalStiffMatrix{
 
@@ -158,22 +160,13 @@ class FrameGlobalStiffMatrix{
     }
 
     void getDisplacment(vector<double> loadVector){
-
-        double result = 0;
-
-        for(int j = 0; j < n; j++){
-            for(int i = 0; i < n; i++){
-                for(int k = 0; k < n; k++){
-                    result = result + globalStiffnessMatrix[j][k] * loadVector[k];
-                }
-                displacement[i] = result;
-                result = 0;
-            }
-        }
+        MattSolver(loadVector, globalStiffnessMatrix, n);
     }
 
     void printDisplacment(){
         cout<<"Displacment Vector"<<endl;
+        cout<<fixed;
+        cout.precision(5);
         for(int i = 0; i < n; i++){
             cout<<displacement[i]<< " | ";
         }
