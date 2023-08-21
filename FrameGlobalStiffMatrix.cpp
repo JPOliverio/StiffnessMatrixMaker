@@ -160,7 +160,9 @@ class FrameGlobalStiffMatrix{
     }
 
     void getDisplacment(vector<double> loadVector){
-        MattSolver(loadVector, globalStiffnessMatrix, n);
+        MattSolver pink = MattSolver(loadVector, globalStiffnessMatrix, n);
+        vector<double> mouse = pink.getD();
+
     }
 
     void printDisplacment(){

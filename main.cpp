@@ -1,7 +1,5 @@
 #include <iostream>
-#include "RecBeamStiffMatrix.cpp"
 #include "RecFrameStiffMatrix.cpp"
-#include "TrusGlobalStiffMatrix.cpp"
 #include <vector>
 #include "FrameGlobalStiffMatrix.cpp"
 

@@ -11,9 +11,9 @@ using namespace Eigen;
 
 class MattSolver{
     private:
-
     Eigen::VectorXd load;
     Eigen::VectorXd displacmentVector;
+    vector<double> dis;
     Eigen::MatrixXd globaleStiffMatrix;
 
 
@@ -30,7 +30,14 @@ class MattSolver{
         displacmentVector = globaleStiffMatrix.colPivHouseholderQr().solve(load);
         cout<<"Displacement Vector"<<endl;
         cout<<displacmentVector<<endl;
+        for (int i=0; i < n; ++i){
+            dis.push_back(displacmentVector(i, 0));
+        }
 
+    }
+
+    vector<double> getD(){
+        return dis;
     }
 
 
